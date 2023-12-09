@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Post Info :[</h1>
+    <h2>{{post}}</h2>
+    {{post.content.html | safe}}
+    <h4 style="display: none;">{{post.background}}</h4>
+
+    {% if post.author == user %}
+        <a href="{% url 'pestpoge:blog_update' post.pk %}">Edit</a> |
+        <a href="{% url 'pestpoge:blog_delete' post.pk %}">Remove</a>
+    {% endif %}
+
+    <script>
+        backcolor = document.querySelector('h4').innerHTML
+        document.querySelector('body').style.backgroundColor = backcolor
+    </script>
+{% endblock %}

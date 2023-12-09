@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Post Form !</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="submit">
+    </form>
+    <button onclick="john()">check color</button>
+    <script>
+        a = document.querySelector('#id_background');
+        function john() {
+            document.querySelector('body').style.backgroundColor = a.value;
+        }
+    </script>
+{% endblock %}

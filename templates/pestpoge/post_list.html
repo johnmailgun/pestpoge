@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Post List :] </h1>
+    {% for post in all_post %}
+        <ul>
+            <li><a href="{% url 'pestpoge:blog_detail' post.pk %}">{{post}}</a></li>
+        </ul>  
+    {% endfor %}
+{% endblock %}
